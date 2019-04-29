@@ -1,0 +1,16 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.104.25.139:3306/bms?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: hpdihpdi
+jpa:
+  show-sql: true
+server:
+  port: 8081
