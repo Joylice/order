@@ -2,7 +2,7 @@ package com.business.order.controller;
 
 import com.business.order.VO.ResultVO;
 import com.business.order.dataobject.ProductInfo;
-import com.business.order.dto.OrderDTO;
+import com.business.order.DTO.OrderDTO;
 import com.business.order.enums.ResultEnum;
 import com.business.order.exception.OrderException;
 import com.business.order.form.OrderForm;
@@ -55,8 +55,9 @@ public class OrderController {
         return resultVO;
     }
 
-    @GetMapping("/product/listForOrder")
+    @PostMapping("/product/listForOrder")
     public List<ProductInfo> getProductInfoList(@RequestBody List<String> productIds) {
+
         return null;
     }
 }

@@ -1,4 +1,4 @@
-package com.business.order.dto;
+package com.business.order.DTO;
 
 import com.business.order.dataobject.OrderDetail;
 import lombok.Data;
