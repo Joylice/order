@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDTO create(OrderDTO orderDTO) {
-        String orderId = KeyUtils.getUniqueKey();
+        String orderId = System.currentTimeMillis() + "";
         //查询商品信息
         List<String> productIdList = orderDTO.getOrderDetails().stream()
                 .map(OrderDetail::getProductId)
@@ -47,9 +47,10 @@ public class OrderServiceImpl implements OrderService {
                     orderAmount = new BigDecimal(orderDetail.getProductQuantity())
                             .multiply(productInfo.getProductPrice())
                             .add(orderAmount);
-                    BeanUtils.copyProperties(orderDTO, orderDetail);
-                    orderDetail.setOrderId();
-                    orderDetail.setDetailId(KeyUtils.getUniqueKey());
+                    BeanUtils.copyProperties(productInfo, orderDetail);
+                    orderDetail.setOrderId(orderId);
+                    orderDetail.setDetailId(orderId + Integer.toString(new Random(10).nextInt(10000)));
+                    orderDetailRepository.save(orderDetail);
                 }
             }
         }
